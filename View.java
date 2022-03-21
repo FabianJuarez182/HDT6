@@ -72,6 +72,50 @@ public class View{
     //****************************************************************
 
     /*****************************************************************
+     * retorna el valor del elemento seleccionado por el usuario
+     * @return
+     */
+    public int menu2(){ //Menu principal para que el usuario eliga la opcion a realizar
+        String salir = "";
+        int numMenu = 0;
+        String tmpTexto = "";
+        boolean isNumeric = false;
+        while(!salir.equalsIgnoreCase("si")){
+            //Se imprime el menu en pantalla y se le pide al usuario un numero del menu
+            System.out.println("\n************************* Escoja el map que desea utilizar ************************************\n");
+            System.out.println("1. Agregar un productos la coleccion");
+            System.out.println("2. Mostrar la categoria del producto");
+            System.out.println("3. Mostrar los datos del producto, categoria y cantidad de articulos que hay en la coleccion");
+            System.out.println("4. Mostrar los datos del producto, categoria y cantidad de articulos que hay en la coleccion ordenadamente por el tipo");
+            System.out.println("5. Mostrar el producto y la categoria de todo el inventario");
+            System.out.println("6. Mostrar el producto y la categoria de todo el inventario ordenadamente por el tipo");
+            System.out.println("7. Salir");
+            System.out.println("\n************ Por, favor elija la opcion que desea ejecutar **********\n");
+            tmpTexto = scan.nextLine();
+
+            // Se verifica que el numero que dio el usuario fue valido
+            isNumeric = tmpTexto.chars().allMatch( Character::isDigit );
+            if (isNumeric && !tmpTexto.isEmpty()){
+                numMenu = Integer.parseInt(tmpTexto);
+                salir = "si";
+            }
+            while (tmpTexto.isEmpty()||!isNumeric || numMenu < 1 || numMenu > 7) {
+                System.out.println("ERROR, ingresar una opcion de menu mayor que 0" + " o menor que 6");
+                tmpTexto = scan.nextLine();
+                isNumeric = tmpTexto.chars().allMatch( Character::isDigit );
+                numMenu = 0;
+                if (isNumeric&&!tmpTexto.isEmpty()){
+                    numMenu = Integer.parseInt(tmpTexto);
+                    salir = "si";
+                    }
+                }
+            }
+        return numMenu;
+    }
+    //****************************************************************
+
+
+    /*****************************************************************
      * Mensaje que dara al finalizar el programa
      */
     public void end(){

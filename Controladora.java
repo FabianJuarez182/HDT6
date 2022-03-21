@@ -27,5 +27,102 @@ public class Controladora {
      */
     public static void main(String[] args) throws Exception {
         //Atributos.
+        int numMenu;
+        int numMenu2;
+        View miVista = new View();
+        Archivo miArchivo = new Archivo();
+
+        miArchivo.read();
+        miVista.welcome(); //Despliegue el titulo del programa
+        numMenu = -1;
+        while(numMenu != 4){ //Despliega el menu principal
+            numMenu = miVista.menu();
+            numMenu2 = -1;
+            if (numMenu < 4){
+                if(numMenu==1){
+                    miVista.output("Implementacion de HashMap");
+                    numMenu =-1;
+                    while(numMenu2 != 7){
+                        numMenu2 = miVista.menu2();
+                        switch (numMenu2) {
+                            case 1:
+                                ;
+                            break;
+                            case 2:
+                                ;
+                            break;
+                            case 3:
+                                ;        
+                            break;
+                            case 4:
+                                ;
+                            break;
+                            case 5:
+                                ;
+                            break;
+                            case 6:
+                                ;
+                            break;
+                        }
+                    }
+                }
+                if(numMenu==2){
+                    miVista.output("Implementacion de TreeMap");
+                    numMenu =-1;
+                    while(numMenu2 != 7){
+                        numMenu2 = miVista.menu2();
+                        switch (numMenu2) {
+                            case 1:
+                                ;
+                            break;
+                            case 2:
+                                ;
+                            break;
+                            case 3:
+                                ;        
+                            break;
+                            case 4:
+                                ;
+                            break;
+                            case 5:
+                                ;
+                            break;
+                            case 6:
+                                ;
+                            break;
+                        }
+                    }
+                }
+                if(numMenu==3){
+                    miVista.output("Implementacion de LinkedHashMap");
+                    numMenu =-1;
+                    while(numMenu2 != 7){
+                        numMenu2 = miVista.menu2();
+                        switch (numMenu2) {
+                            case 1:
+                                ;
+                            break;
+                            case 2:
+                                ;
+                            break;
+                            case 3:
+                                ;        
+                            break;
+                            case 4:
+                                ;
+                            break;
+                            case 5:
+                                ;
+                            break;
+                            case 6:
+                                ;
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+                miVista.end();
+        }
     }
 }
