@@ -34,6 +34,7 @@ public class Controladora {
         miArchivo.read();
         Hash miHash = new Hash(miArchivo);
         tree miTree = new tree(miArchivo);
+        linkedHash milinked = new linkedHash(miArchivo);
         String nombreProducto;
         int cantProductos;
         String Categoria;
@@ -112,29 +113,34 @@ public class Controladora {
                         numMenu2 = miVista.menu2();
                         switch (numMenu2) {
                             case 1:
-                                ;
+                                Categoria = miVista.inputString("Ingrese la categoria del producto a usar");
+                                nombreProducto = miVista.inputString("Ingrese el nombre del producto a usar");
+                                cantProductos =  miVista.inputInt("Ingrese la cantidad de productos a usar");
+                                milinked.agregarProducto(Categoria,nombreProducto,cantProductos);
                             break;
                             case 2:
-                                ;
+                                nombreProducto = miVista.inputString("Ingrese el nombre del producto a usar");
+                                milinked.mostrarCategoria(nombreProducto);
                             break;
                             case 3:
-                                ;
+                                milinked.ProductosCaracteristicas();
                             break;
                             case 4:
-                                ;
+                                milinked.ProductosCaracteristicasOrdenadas();
                             break;
                             case 5:
-                                ;
+                                milinked.productoCategoria();
                             break;
                             case 6:
-                                ;
+                                milinked.productoCategoriaOrdenada();
                             break;
                         }
                     }
                 }
             }
-            else
+            else{
                 miVista.end();
+            }
         }
     }
 }
