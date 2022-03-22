@@ -1,35 +1,10 @@
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Archivo {
     ArrayList<String> array = new ArrayList<String>();
-    
-     /*****************************************************************
-	 * Creara el archivo donde iran los 3000 numeros
-    public void Filewrite(){
-        try {
-            String ruta = "ListadoProducto.txt";
-            String contenido = "";
-            File file = new File(ruta);
-            // Si el archivo no existe es creado
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-            for(int i=0; i < size ;i ++)
-                contenido += array[i] + "\n";
-            bw.write(contenido);
-            bw.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    //****************************************************************
 
 /*****************************************************************
 	 * FileReader: Lee el archivo.
@@ -41,7 +16,10 @@ public class Archivo {
             File file = new File("ListadoProducto.txt");
             Scanner reader = new Scanner(file);
             while(reader.hasNextLine()){
-                array.add(reader.nextLine());
+                String dato = reader.nextLine();
+                String[] separada = dato.split("\\|");
+                for (int i=0; i<separada.length; i++)
+                    array.add(separada[i].trim());
             }
             reader.close();
         }catch(FileNotFoundException e){
@@ -51,4 +29,8 @@ public class Archivo {
         return read;
     }
     //****************************************************************
+
+    public ArrayList<String> getArchivo(){
+        return this.array;
+    }
 }
